@@ -57,7 +57,7 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div
         id="app"
-        className="p-6 flex flex-col gap-4 items-center border-2 drop-shadow-xl"
+        className="p-6 flex flex-col gap-4 items-center  drop-shadow-xl"
       >
         <h1 className="font-bold text-xl">TODO LIST</h1>
         <div>
