@@ -41,7 +41,7 @@ function Listitem({ deleteTodo, todos, toggleComplete }) {
                 />
               </ListItemIcon>
               <ListItemText
-                className="break-words"
+                className={`break-words ${todo.completed !== true ? "":"overline"}`}
                 id={labelId}
                 primary={todo.text}
               />
