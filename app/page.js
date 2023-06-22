@@ -6,7 +6,6 @@ import AddIcon from "@mui/icons-material/Add";
 import { TextField } from "@mui/material";
 import Listitem from "./ListItem";
 import {
-  QuerySnapshot,
   collection,
   onSnapshot,
   query,
@@ -19,7 +18,6 @@ import { db } from "./firebase";
 export default function Home() {
   const [todos, setTodos] = useState([]);
   const [input, setInput] = useState("");
-  console.log(input);
   useEffect(() => {
     const q = query(collection(db, "todos"));
     const unsubscribe = onSnapshot(q, (QuerySnapshot) => {
@@ -29,7 +27,6 @@ export default function Home() {
       });
       setTodos(todosArr);
     });
-    console.log(todos);
 
     return () => unsubscribe();
   }, []);
@@ -52,13 +49,10 @@ export default function Home() {
     });
 
     setInput("");
-    console.log("submitted");
   };
 
   const deleteTodo = async (id) => {
     await deleteDoc(doc(db, "todos", id));
-
-    console.log("deleted");
   };
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">

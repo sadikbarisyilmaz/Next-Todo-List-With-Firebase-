@@ -40,7 +40,11 @@ function Listitem({ deleteTodo, todos, toggleComplete }) {
                   inputProps={{ "aria-labelledby": labelId }}
                 />
               </ListItemIcon>
-              <ListItemText id={labelId} primary={todo.text} />
+              <ListItemText
+                className="break-words"
+                id={labelId}
+                primary={todo.text}
+              />
             </ListItemButton>
           </ListItem>
         );
