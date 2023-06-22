@@ -27,7 +27,6 @@ export default function Home() {
       });
       setTodos(todosArr);
     });
-
     return () => unsubscribe();
   }, []);
 
@@ -56,7 +55,10 @@ export default function Home() {
   };
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div id="app" className="p-6 flex flex-col gap-4 items-center border-2">
+      <div
+        id="app"
+        className="p-6 flex flex-col gap-4 items-center border-2 drop-shadow-xl"
+      >
         <h1 className="font-bold text-xl">TODO LIST</h1>
         <div>
           <form onSubmit={createTodo} action="">
@@ -83,6 +85,7 @@ export default function Home() {
             />
           </List>
         </div>
+        <p>You have {todos.length} todos.</p>
       </div>
     </main>
   );
