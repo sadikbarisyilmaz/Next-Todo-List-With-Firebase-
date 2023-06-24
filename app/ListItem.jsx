@@ -5,48 +5,53 @@ import ListItemText from "@mui/material/ListItemText";
 import Checkbox from "@mui/material/Checkbox";
 import IconButton from "@mui/material/IconButton";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
-
+import { Divider } from "@mui/material";
 function Listitem({ deleteTodo, todos, toggleComplete }) {
   return (
     <>
+      <Divider />
+
       {todos.map((todo) => {
         const labelId = `checkbox-list-label-${todo}`;
 
         return (
-          <ListItem
-            key={todo.id}
-            secondaryAction={
-              <IconButton
-                onClick={() => deleteTodo(todo.id)}
-                edge="end"
-                aria-label="comments"
-              >
-                <DeleteOutlineIcon />
-              </IconButton>
-            }
-            disablePadding
-          >
-            <ListItemButton
-              role={undefined}
-              onClick={() => toggleComplete(todo)}
-              dense
+          <>
+            <ListItem
+              key={todo.id}
+              secondaryAction={
+                <IconButton
+                  onClick={() => deleteTodo(todo.id)}
+                  edge="end"
+                  aria-label="comments"
+                >
+                  <DeleteOutlineIcon />
+                </IconButton>
+              }
+              disablePadding
             >
-              <ListItemIcon>
-                <Checkbox
-                  edge="start"
-                  checked={todo.completed !== true ? false : true}
-                  tabIndex={-1}
-                  disableRipple
-                  inputProps={{ "aria-labelledby": labelId }}
+              <ListItemButton
+                role={undefined}
+                onClick={() => toggleComplete(todo)}
+                dense
+              >
+                <ListItemIcon>
+                  <Checkbox
+                    edge="start"
+                    checked={todo.completed !== true ? false : true}
+                    tabIndex={-1}
+                    disableRipple
+                    inputProps={{ "aria-labelledby": labelId }}
+                  />
+                </ListItemIcon>
+                <ListItemText
+                  className="break-words"
+                  id={labelId}
+                  primary={todo.text}
                 />
-              </ListItemIcon>
-              <ListItemText
-                className="break-words"
-                id={labelId}
-                primary={todo.text}
-              />
-            </ListItemButton>
-          </ListItem>
+              </ListItemButton>
+            </ListItem>
+            <Divider />
+          </>
         );
       })}
     </>

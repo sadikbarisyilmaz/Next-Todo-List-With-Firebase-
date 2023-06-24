@@ -61,7 +61,7 @@ export default function Home() {
       >
         <h1 className="font-bold text-xl">TODO LIST</h1>
         <div>
-          <form onSubmit={createTodo} action="">
+          <form onSubmit={createTodo} className="flex gap-1" action="">
             <TextField
               id="standard-basic"
               variant="standard"
